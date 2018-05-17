@@ -1,8 +1,13 @@
+/* Explicacion en: 
+*   http://openbravo3.foroactivo.com/t15-recuperando-propiedades-de-openbravo-properties-usando-dal#22
+*/
 package com.ages.ejemplos;
 
 import org.apache.log4j.*;
 import org.openbravo.scheduling.ProcessBundle;
 import org.openbravo.base.session.OBPropertiesProvider;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -14,7 +19,7 @@ public class OBDotProperties implements org.openbravo.scheduling.Process {
 
   public void execute(ProcessBundle bundle) throws Exception {
          
-         try{
+         try {
 
             String attachmentFolderPath = OBPropertiesProvider.getInstance().getOpenbravoProperties().getProperty("attach.path");
             String sourcepath = OBPropertiesProvider.getInstance().getOpenbravoProperties().getProperty("source.path");
@@ -24,6 +29,11 @@ public class OBDotProperties implements org.openbravo.scheduling.Process {
             String systemPassword = OBPropertiesProvider.getInstance().getOpenbravoProperties().getProperty("bbdd.systemPassword");
             String sqlDateFormat = OBPropertiesProvider.getInstance().getOpenbravoProperties().getProperty("dateFormat.sql");
 
+            //Formatear fecha
+            String strDate = "01-01-2000";
+            String format = OBPropertiesProvider.getInstance().getOpenbravoProperties().getProperty("dateFormat.java");
+            SimpleDateFormat outputFormat = new SimpleDateFormat(format);
+            Date date = outputFormat.parse(strDate);
          }
  
         catch(Exception e){
