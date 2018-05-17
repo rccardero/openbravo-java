@@ -1,5 +1,5 @@
 /* Explicacion en: 
-*   
+*   http://openbravo3.foroactivo.com/t16-recuperando-parametros-de-la-ventana-en-un-proceso-dal#23
 */
 package com.ages.ejemplos;
 
